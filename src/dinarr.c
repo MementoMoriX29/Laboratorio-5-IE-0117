@@ -35,3 +35,32 @@ int da_get(DinaArray *da, size_t i) {
     return da->data[i];
 }
 
+void da_eliminar(DinaArray *da, size_t i) {
+    if (i >= da->size) {
+        fprintf(stderr, "Error: indice %zu fuera de rango\n", i);
+        return;
+    }
+    /* recorrer los elementos después de i, recorriéndolos una posición hacia atrás */
+    for (size_t j = i; j < da->size - 1; j++) {
+        da->data[j] = da->data[j + 1];
+    }
+    da->size--;
+}
+
+void da_print(DinaArray *da) {
+    printf("[ ");
+    for (size_t i = 0; i < da->size; i++) {
+        printf("%d ", da->data[i]);
+    }
+    printf("] size=%zu cap=%zu\n", da->size, da->capacidad);
+}
+
+void da_free(DinaArray *da) {
+    free(da->data);
+    da->data = NULL;
+    da->size = 0;
+    da->capacidad = 0;
+}
+
+
+
