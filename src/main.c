@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include "listadbl.h"
 #include "dinarr.h"
+#include "lista.h"
 
 int main(void) {
     DinaArray arr;
@@ -26,6 +28,41 @@ int main(void) {
 
     printf("\n-- Liberar memoria (da_free) --\n");
     da_free(&arr);
+
+    
+
+    /* ── LISTA DOBLEMENTE ENLAZADA ─────────────────────── */
+    ListaDbl ld;
+    printf("\n=== Lista Doblemente Enlazada ===\n");
+
+    ld_init(&ld);
+
+    printf("\n-- Insertar al inicio --\n");
+    ld_insertar_inicio(&ld, 10);
+    ld_insertar_inicio(&ld, 20);
+    ld_print_adelante(&ld);
+
+    printf("\n-- Insertar al final --\n");
+    ld_insertar_final(&ld, 30);
+    ld_print_adelante(&ld);
+
+    printf("\n-- Insertar en posicion 1 --\n");
+    ld_insertar_pos(&ld, 1, 99);
+    ld_print_adelante(&ld);
+
+    printf("\n-- Buscar elemento --\n");
+    printf("Buscar 10: %d\n", ld_buscar(&ld, 10));
+    printf("Buscar 55: %d\n", ld_buscar(&ld, 55));
+
+    printf("\n-- Eliminar elemento (99) --\n");
+    ld_eliminar(&ld, 99);
+    ld_print_adelante(&ld);
+
+    printf("\n-- Imprimir hacia atras --\n");
+    ld_print_atras(&ld);
+
+    printf("\n-- Liberar memoria --\n");
+    ld_free(&ld);
 
     return 0;
 }
