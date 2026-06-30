@@ -27,11 +27,14 @@ int main(void) {
     da_print(&arr);
 
     printf("\n-- Liberar memoria (da_free) --\n");
-    da_free(&arr);
+    da_free(&arr);    
 
-    
 
-    /* ── LISTA DOBLEMENTE ENLAZADA ─────────────────────── */
+
+
+
+
+
     ListaDbl ld;
     printf("\n=== Lista Doblemente Enlazada ===\n");
 
@@ -64,6 +67,37 @@ int main(void) {
     printf("\n-- Liberar memoria --\n");
     ld_free(&ld);
 
+    /* ── LISTA ENLAZADA ─────────────────────── */
+    ListaEnl l;
+    printf("\n=== Listas Enlazadas ===\n");
+
+    le_init(&l);
+
+    printf("\n-- Insertar al inicio --\n");
+    le_insertar_inicio(&l, 10);
+    le_insertar_inicio(&l, 20);
+    le_print(&l);   /* [ 20 10 ] */
+
+    printf("\n-- Insertar al final --\n");
+    le_insertar_final(&l, 30);
+    le_print(&l);   /* [ 20 10 30 ] */
+
+    printf("\n-- Insertar en posicion 1 --\n");
+    le_insertar_pos(&l, 1, 99);
+    le_print(&l);   /* [ 20 99 10 30 ] */
+
+    printf("\n-- Buscar elemento --\n");
+    printf("Buscar 10: %d\n", le_buscar(&l, 10));  /* 1 */
+    printf("Buscar 55: %d\n", le_buscar(&l, 55));  /* 0 */
+
+    printf("\n-- Eliminar elemento (99) --\n");
+    le_eliminar(&l, 99);
+    le_print(&l);   /* [ 20 10 30 ] */
+
+    printf("\n-- Liberar memoria --\n");
+    le_free(&l);
+
+ 
     return 0;
 }
 
