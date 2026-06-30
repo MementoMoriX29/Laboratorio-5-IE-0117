@@ -27,14 +27,9 @@ int main(void) {
     da_print(&arr);
 
     printf("\n-- Liberar memoria (da_free) --\n");
-    da_free(&arr);    
+    da_free(&arr);
 
-
-
-
-
-
-
+    /* ── LISTA DOBLEMENTE ENLAZADA ─────────────────────── */
     ListaDbl ld;
     printf("\n=== Lista Doblemente Enlazada ===\n");
 
@@ -97,8 +92,5 @@ int main(void) {
     printf("\n-- Liberar memoria --\n");
     le_free(&l);
 
- 
     return 0;
 }
-
-
