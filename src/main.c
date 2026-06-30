@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "dinarr.h"
+#include "lista.h"
 
 int main(void) {
     DinaArray arr;
