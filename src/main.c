@@ -2,6 +2,7 @@
 #include "listadbl.h"
 #include "dinarr.h"
 #include "lista.h"
+#include "pila.h"
 
 int main(void) {
     DinaArray arr;
@@ -91,6 +92,36 @@ int main(void) {
 
     printf("\n-- Liberar memoria --\n");
     le_free(&l);
+
+
+    /* ── PILA (STACK) ─────────────────────── */
+    Pila p;
+    printf("\n=== Pila (Stack) ===\n");
+
+    pila_init(&p);
+
+    printf("\n-- isEmpty (pila recien creada) --\n");
+    printf("Esta vacia: %d\n", pila_is_empty(&p));
+
+    printf("\n-- Push --\n");
+    pila_push(&p, 10);
+    pila_push(&p, 20);
+    pila_push(&p, 30);
+    pila_print(&p);
+
+    printf("\n-- Peek (ver tope sin eliminar) --\n");
+    printf("Tope: %d\n", pila_peek(&p));
+    pila_print(&p);
+
+    printf("\n-- Pop --\n");
+    printf("Elemento eliminado: %d\n", pila_pop(&p));
+    pila_print(&p);
+
+    printf("\n-- isEmpty (despues de pop) --\n");
+    printf("Esta vacia: %d\n", pila_is_empty(&p));
+
+    printf("\n-- Liberar memoria --\n");
+    pila_free(&p);
 
     return 0;
 }
